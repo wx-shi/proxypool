@@ -1,6 +1,7 @@
-domain: example.com
+domain: 127.0.0.1:8080
 cf_email: ""
 cf_key: ""
+port: "8080"
+max_delay: 600
 source-files:
   - ./source.yaml
-  - https://example.com/source.yaml

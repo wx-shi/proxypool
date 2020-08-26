@@ -16,6 +16,8 @@ type ConfigOptions struct {
 	Domain      string   `json:"domain" yaml:"domain"`
 	CFEmail     string   `json:"cf_email" yaml:"cf_email"`
 	CFKey       string   `json:"cf_key" yaml:"cf_key"`
+	MaxDelay    uint16   `json:"max_delay" yaml:"max_delay"`
+	Port        string   `json:"port" yaml:"port"`
 	SourceFiles []string `json:"source-files" yaml:"source-files"`
 }
 

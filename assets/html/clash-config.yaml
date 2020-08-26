@@ -67,7 +67,7 @@ proxy-groups:
 proxy-providers:
   provider:
     type: http
-    url: "https://{{ .domain }}/clash/proxies"
+    url: "http://{{ .domain }}/clash/proxies"
     interval: 3600
     path: ./provider.yaml
     health-check:

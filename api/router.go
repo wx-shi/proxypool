@@ -3,7 +3,6 @@ package api
 import (
 	"html/template"
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/heroku/x/hmetrics/onload"
@@ -13,7 +12,7 @@ import (
 	"github.com/zu1k/proxypool/pkg/provider"
 )
 
-const version = "v0.3.3"
+const version = "v0.3.2"
 
 var router *gin.Engine
 
@@ -103,11 +102,11 @@ func setupRouter() {
 
 func Run() {
 	setupRouter()
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
+
+	if config.Config.Port == "" {
+		config.Config.Port = "8080"
 	}
-	router.Run(":" + port)
+	router.Run(":" + config.Config.Port)
 }
 
 func loadTemplate() (t *template.Template, err error) {

@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/ivpusic/grpool"
+	"github.com/zu1k/proxypool/config"
 
 	"github.com/Dreamacro/clash/adapters/outbound"
 )
@@ -73,7 +74,7 @@ func CleanBadProxiesWithGrpool(proxies []Proxy) (cproxies []Proxy) {
 	for {
 		select {
 		case r := <-c:
-			if r.delay > 0 {
+			if r.delay > 0 && r.delay < config.Config.MaxDelay {
 				okMap[r.name] = struct{}{}
 			}
 		case <-done:
